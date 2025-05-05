@@ -136,7 +136,9 @@ t.string "character"
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-
+studio1 = Studio.new
+studio1["name"] = "Warner Bros"
+studio1.save
 
 
 
