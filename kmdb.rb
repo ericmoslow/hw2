@@ -139,13 +139,37 @@ Role.destroy_all
 # TODO!
 
 studio1 = Studio.new
-studio1["name"] = "Warner Bros"
+studio1["name"] = "Warner Bros."
 studio1.save
 
+warner = Studio.find_by({"name" => "Warner Bros."})
 
+movie1 = Movie.new
+movie1["title"] = "Batman Begins"
+movie1["year_released"] = 2005
+movie1["rating"] = "PG-13"
+movie1["studio_id"] = warner["id"]
+movie1.save
 
+batman_begins = Movie.find_by{["title" => "Batman Begins"]}
 
+movie2 = Movie.new
+movie2["title"] = "The Dark Knight"
+movie2["year_released"] = 2008
+movie2["rating"] = "PG-13"
+movie2["studio_id"] = warner["id"]
+movie2.save
 
+dark_knight = Movie.find_by{["title" => "The Dark Knight"]}
+
+movie3 = Movie.new
+movie3["title"] = "The Dark Knight Rises"
+movie3["year_released"] = 2012
+movie3["rating"] = "PG-13"
+movie3["studio_id"] = warner["id"]
+movie3.save
+
+dark_knight_rises = Movie.find_by{["title" => "The Dark Knight Rises"]}
 
 # Prints a header for the movies output
 puts "Movies"
