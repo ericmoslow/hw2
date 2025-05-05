@@ -111,26 +111,28 @@ Role.destroy_all
 #   character_name TEXT
 # );
 
-rails generate model Studio
-t.integer "id"
-t.string "name"
+# rails generate model Studio
+# t.integer "id"
+# t.string "name"
 
-ralis generate model Movie
-t.integer "id"
-t.string "title"
-t.string "year_released"
-t.string "rating"
-t.integer "studio_id"
+# ralis generate model Movie
+# t.integer "id"
+# t.string "title"
+# t.string "year_released"
+# t.string "rating"
+# t.integer "studio_id"
 
-rails generate model Actor
-t.integer "id"
-t.string "name"
+# rails generate model Actor
+# t.integer "id"
+# t.string "name"
 
-rails generate Role
-t.integer "id"
-t.integer "movie_id"
-t.integer "actor_id"
-t.string "character"
+# rails generate Role
+# t.integer "id"
+# t.integer "movie_id"
+# t.integer "actor_id"
+# t.string "character"
+
+#done in terminal through migrate
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
