@@ -86,52 +86,6 @@ Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
-# CREATE TABLE studios (
-#   id INTEGER PRIMARY KEY AUTOINCREMENT,
-#   name TEXT
-# );
-
-# CREATE TABLE movies (
-#   id INTEGER PRIMARY KEY AUTOINCREMENT,
-#   title TEXT,
-#   year_released INTEGER,
-#   rated TEXT,
-#   studio_id INTEGER
-# );
-
-# CREATE TABLE actors (
-#   id INTEGER PRIMARY KEY AUTOINCREMENT,
-#   name TEXT
-# );
-
-# CREATE TABLE roles (
-#   id INTEGER PRIMARY KEY AUTOINCREMENT,
-#   movie_id INTEGER,
-#   actor_id INTEGER,
-#   character_name TEXT
-# );
-
-# rails generate model Studio
-# t.integer "id"
-# t.string "name"
-
-# ralis generate model Movie
-# t.integer "id"
-# t.string "title"
-# t.string "year_released"
-# t.string "rating"
-# t.integer "studio_id"
-
-# rails generate model Actor
-# t.integer "id"
-# t.string "name"
-
-# rails generate Role
-# t.integer "id"
-# t.integer "movie_id"
-# t.integer "actor_id"
-# t.string "character"
-
 #done in terminal through migrate
 
 # Insert data into the database that reflects the sample data shown above.
@@ -139,10 +93,10 @@ Role.destroy_all
 # TODO!
 
 studio1 = Studio.new
-studio1["name"] = "Warner Bros."
+studio1["name"] = "Warner Bros"
 studio1.save
 
-warner = Studio.find_by({"name" => "Warner Bros."})
+warner = Studio.find_by({"name" => "Warner Bros"})
 
 movie1 = Movie.new
 movie1["title"] = "Batman Begins"
@@ -151,7 +105,7 @@ movie1["rating"] = "PG-13"
 movie1["studio_id"] = warner["id"]
 movie1.save
 
-batman_begins = Movie.find_by{["title" => "Batman Begins"]}
+batman_begins = Movie.find_by({"title" => "Batman Begins"})
 
 movie2 = Movie.new
 movie2["title"] = "The Dark Knight"
@@ -160,7 +114,7 @@ movie2["rating"] = "PG-13"
 movie2["studio_id"] = warner["id"]
 movie2.save
 
-dark_knight = Movie.find_by{["title" => "The Dark Knight"]}
+dark_knight = Movie.find_by({"title" => "The Dark Knight"})
 
 movie3 = Movie.new
 movie3["title"] = "The Dark Knight Rises"
@@ -169,7 +123,7 @@ movie3["rating"] = "PG-13"
 movie3["studio_id"] = warner["id"]
 movie3.save
 
-dark_knight_rises = Movie.find_by{["title" => "The Dark Knight Rises"]}
+dark_knight_rises = Movie.find_by({"title" => "The Dark Knight Rises"})
 
 actor1 = Actor.new
 actor1["name"] = "Christian Bale"
@@ -334,6 +288,13 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies = Movie.all
+
+for movie in movies
+    studio = Studio.find_by({"id" => movie.studio_id})
+    puts "#{movie.title} #{movie.year_released} #{movie.rating} #{studio.name}"
+end
 
 # Prints a header for the cast output
 puts ""
