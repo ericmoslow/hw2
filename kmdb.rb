@@ -77,12 +77,68 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+
+
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
+# CREATE TABLE studios (
+#   id INTEGER PRIMARY KEY AUTOINCREMENT,
+#   name TEXT
+# );
+
+# CREATE TABLE movies (
+#   id INTEGER PRIMARY KEY AUTOINCREMENT,
+#   title TEXT,
+#   year_released INTEGER,
+#   rated TEXT,
+#   studio_id INTEGER
+# );
+
+# CREATE TABLE actors (
+#   id INTEGER PRIMARY KEY AUTOINCREMENT,
+#   name TEXT
+# );
+
+# CREATE TABLE roles (
+#   id INTEGER PRIMARY KEY AUTOINCREMENT,
+#   movie_id INTEGER,
+#   actor_id INTEGER,
+#   character_name TEXT
+# );
+
+rails generate model Studio
+t.integer "id"
+t.string "name"
+
+ralis generate model Movie
+t.integer "id"
+t.string "title"
+t.string "year_released"
+t.string "rating"
+t.integer "studio_id"
+
+rails generate model Actor
+t.integer "id"
+t.string "name"
+
+rails generate Role
+t.integer "id"
+t.integer "movie_id"
+t.integer "actor_id"
+t.string "character"
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+
+
+
+
+
+
 
 # Prints a header for the movies output
 puts "Movies"
